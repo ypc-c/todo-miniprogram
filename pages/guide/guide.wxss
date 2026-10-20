@@ -1,0 +1,15 @@
+/* pages/guide/guide.wxss */
+.step-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #3b82f6;
+  margin-bottom: 16rpx;
+}
+.step {
+  font-size: 28rpx;
+  color: #374151;
+  line-height: 2;
+}
+.tip-card {
+  background: #f8fafc;
+}

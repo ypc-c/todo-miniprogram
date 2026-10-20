@@ -1,0 +1,134 @@
+<!-- pages/task/task.wxml -->
+<view class="container form">
+  <!-- 标题 -->
+  <view class="field">
+    <input class="title-input" placeholder="待办标题" value="{{title}}" bindinput="onTitleInput" maxlength="100" />
+  </view>
+
+  <!-- 备注 -->
+  <view class="field">
+    <textarea class="note-input" placeholder="备注（选填）" value="{{note}}" bindinput="onNoteInput" maxlength="1000" />
+  </view>
+
+  <!-- 截止日期 -->
+  <view class="field row">
+    <text class="label">截止日期</text>
+    <picker mode="date" value="{{dateText}}" bindchange="onDateChange">
+      <view class="picker-value {{dateText ? '' : 'placeholder'}}">{{dateText || '选择日期'}}</view>
+    </picker>
+  </view>
+
+  <!-- 时间 -->
+  <view class="field row">
+    <text class="label">时间</text>
+    <picker mode="time" value="{{timeText}}" bindchange="onTimeChange" disabled="{{!dueDate}}">
+      <view class="picker-value {{timeText ? '' : 'placeholder'}}">{{timeText || (dueDate ? '选择时间' : '需先选日期')}}</view>
+    </picker>
+    <text wx:if="{{dueDate}}" class="clear" bindtap="clearDate">清除</text>
+  </view>
+
+  <!-- 优先级 -->
+  <view class="field">
+    <text class="label">优先级</text>
+    <view class="chip-row">
+      <view
+        wx:for="{{priOptions}}"
+        wx:key="key"
+        class="chip {{priority === item.key ? 'active pri-' + item.key : ''}}"
+        data-key="{{item.key}}"
+        bindtap="selectPriority"
+      >{{item.label}}</view>
+    </view>
+  </view>
+
+  <!-- 标签/分类 -->
+  <view class="field">
+    <text class="label">分类标签</text>
+    <view class="chip-row">
+      <view
+        wx:for="{{categories}}"
+        wx:key="id"
+        class="chip tag-chip {{tags.indexOf(item.id) >= 0 ? 'active' : ''}}"
+        style="{{tags.indexOf(item.id) >= 0 ? 'background:' + item.color + ';border-color:' + item.color : ''}}"
+        data-id="{{item.id}}"
+        bindtap="toggleTag"
+      >{{item.name}}</view>
+    </view>
+  </view>
+
+  <!-- 重复 -->
+  <view class="field">
+    <text class="label">重复</text>
+    <view class="chip-row">
+      <view
+        wx:for="{{repeatOptions}}"
+        wx:key="key"
+        class="chip {{repeat.type === item.key ? 'active' : ''}}"
+        data-key="{{item.key}}"
+        bindtap="selectRepeat"
+      >{{item.label}}</view>
+    </view>
+    <view wx:if="{{repeat.type === 'custom'}}" class="sub-row">
+      <text>每</text>
+      <input class="num-input" type="number" value="{{repeat.interval}}" bindinput="onIntervalInput" />
+      <text>天</text>
+    </view>
+    <view wx:if="{{repeat.type === 'weekly'}}" class="sub-row">
+      <text>每</text>
+      <view class="chip-row">
+        <view
+          wx:for="{{weekOptions}}"
+          wx:key="w"
+          class="chip sm {{repeat.weekdays.indexOf(item.w) >= 0 ? 'active' : ''}}"
+          data-w="{{item.w}}"
+          bindtap="toggleWeekday"
+        >{{item.label}}</view>
+      </view>
+      <text>重复</text>
+    </view>
+  </view>
+
+  <!-- 子任务 -->
+  <view class="field">
+    <text class="label">子任务</text>
+    <view wx:for="{{subtasks}}" wx:key="id" class="sub-item">
+      <view class="checkbox sm {{item.done ? 'checked' : ''}}" data-id="{{item.id}}" bindtap="toggleSub">
+        <text wx:if="{{item.done}}">✓</text>
+      </view>
+      <text class="sub-title {{item.done ? 'done-title' : ''}}">{{item.title}}</text>
+      <text class="del" data-id="{{item.id}}" bindtap="removeSub">✕</text>
+    </view>
+    <view class="sub-add">
+      <input class="sub-input" placeholder="添加子任务" value="{{newSub}}" bindinput="onSubInput" confirm-type="done" bindconfirm="addSub" />
+      <text class="add-btn" bindtap="addSub">添加</text>
+    </view>
+  </view>
+
+  <!-- 附件 -->
+  <view class="field">
+    <text class="label">附件</text>
+    <view class="att-row">
+      <view class="att-btn" bindtap="chooseImage">＋图片</view>
+      <view class="att-btn {{recording ? 'recording' : ''}}" bindtap="toggleRecord">{{recording ? '停止录音' : '＋语音'}}</view>
+    </view>
+    <view wx:for="{{attachments}}" wx:key="path" class="att-item">
+      <text wx:if="{{item.type === 'image'}}" class="att-name" data-path="{{item.path}}" bindtap="previewImage">🖼 图片</text>
+      <text wx:else class="att-name" data-path="{{item.path}}" bindtap="playVoice">🔊 语音</text>
+      <text class="del" data-idx="{{index}}" bindtap="removeAttachment">✕</text>
+    </view>
+  </view>
+
+  <!-- 地理位置 -->
+  <view class="field">
+    <text class="label">地理位置</text>
+    <view wx:if="{{location}}" class="loc-row">
+      <text class="loc-name">{{location.name}}</text>
+      <text class="del" bindtap="clearLocation">✕</text>
+    </view>
+    <view wx:else class="att-btn" bindtap="getLocation">＋选择位置</view>
+  </view>
+
+  <!-- 操作 -->
+  <button class="btn-primary save-btn" bindtap="save">保存</button>
+  <button wx:if="{{mode === 'edit'}}" class="btn-ghost del-btn" bindtap="remove">删除待办</button>
+</view>

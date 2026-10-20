@@ -1,0 +1,78 @@
+<!-- pages/index/index.wxml -->
+<view class="container">
+  <!-- 自然语言快捷添加 -->
+  <view class="card quick-box">
+    <view class="quick-title">智能添加</view>
+    <input
+      class="quick-input"
+      placeholder="例如：明天下午3点 高优先级 工作：交周报"
+      value="{{quickText}}"
+      bindinput="onQuickInput"
+      confirm-type="done"
+    />
+    <block wx:if="{{previewView}}">
+      <view class="preview">
+        <text class="preview-item">标题：{{previewView.title}}</text>
+        <text class="preview-item">时间：{{previewView.time}}</text>
+        <text class="preview-item">优先级：{{previewView.priority}}</text>
+        <text class="preview-item">重复：{{previewView.repeat}}</text>
+        <text class="preview-item">标签：{{previewView.tags}}</text>
+      </view>
+      <button class="btn-primary quick-btn" bindtap="addQuick">添加</button>
+    </block>
+  </view>
+
+  <!-- 筛选 -->
+  <scroll-view scroll-x class="filter-bar">
+    <view
+      wx:for="{{filters}}"
+      wx:key="key"
+      class="filter-chip {{filter === item.key ? 'active' : ''}}"
+      data-key="{{item.key}}"
+      bindtap="switchFilter"
+    >{{item.label}}</view>
+    <view
+      wx:for="{{_catFilters}}"
+      wx:key="key"
+      class="filter-chip cat {{filter === item.key ? 'active' : ''}}"
+      style="{{filter === item.key ? 'border-color:' + item.color + ';color:' + item.color : ''}}"
+      data-key="{{item.key}}"
+      bindtap="switchFilter"
+    >{{item.label}}</view>
+  </scroll-view>
+
+  <!-- 任务列表 -->
+  <view wx:if="{{list.length === 0}}" class="empty">暂无待办，点击下方按钮添加</view>
+
+  <view
+    wx:for="{{list}}"
+    wx:key="id"
+    class="card task-item {{item.priorityClass}}"
+    data-id="{{item.id}}"
+    bindtap="goDetail"
+  >
+    <view class="task-main">
+      <view class="checkbox {{item.done ? 'checked' : ''}}" catchtap="toggleDone" data-id="{{item.id}}">
+        <text wx:if="{{item.done}}">✓</text>
+      </view>
+      <view class="task-body">
+        <view class="task-title {{item.done ? 'done-title' : ''}} ellipsis">{{item.title}}</view>
+        <view class="task-meta">
+          <text wx:if="{{item.dueText}}" class="{{item.overdue ? 'overdue' : 'muted'}}">{{item.dueText}}</text>
+          <text wx:if="{{item.subProgress}}" class="muted"> · 子任务 {{item.subProgress}}</text>
+        </view>
+        <view wx:if="{{item.tagChips.length}}" class="tag-row">
+          <text
+            wx:for="{{item.tagChips}}"
+            wx:for-item="chip"
+            wx:key="name"
+            class="tag"
+            style="background:{{chip.color}}"
+          >{{chip.name}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="fab" bindtap="goAdd">＋</view>
+</view>

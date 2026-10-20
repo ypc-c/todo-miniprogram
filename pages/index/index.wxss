@@ -1,0 +1,114 @@
+/* pages/index/index.wxss */
+.quick-box {
+  background: linear-gradient(135deg, #eff6ff, #ffffff);
+}
+.quick-title {
+  font-size: 26rpx;
+  color: #3b82f6;
+  font-weight: 600;
+  margin-bottom: 12rpx;
+}
+.quick-input {
+  background: #fff;
+  border: 1rpx solid #e5e7eb;
+  border-radius: 12rpx;
+  padding: 16rpx 20rpx;
+  font-size: 28rpx;
+}
+.preview {
+  margin-top: 16rpx;
+  background: #f8fafc;
+  border-radius: 12rpx;
+  padding: 16rpx;
+  display: flex;
+  flex-direction: column;
+}
+.preview-item {
+  font-size: 24rpx;
+  color: #475569;
+  line-height: 1.8;
+}
+.quick-btn {
+  margin-top: 16rpx;
+}
+
+.filter-bar {
+  white-space: nowrap;
+  margin-bottom: 20rpx;
+}
+.filter-chip {
+  display: inline-block;
+  padding: 10rpx 28rpx;
+  margin-right: 16rpx;
+  background: #fff;
+  border: 1rpx solid #e5e7eb;
+  border-radius: 999rpx;
+  font-size: 26rpx;
+  color: #6b7280;
+}
+.filter-chip.active {
+  background: #3b82f6;
+  color: #fff;
+  border-color: #3b82f6;
+}
+
+.empty {
+  text-align: center;
+  color: #9ca3af;
+  padding: 80rpx 0;
+  font-size: 28rpx;
+}
+
+.task-item {
+  padding: 24rpx;
+}
+.task-main {
+  display: flex;
+  align-items: flex-start;
+}
+.checkbox {
+  width: 40rpx;
+  height: 40rpx;
+  border: 2rpx solid #cbd5e1;
+  border-radius: 50%;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 24rpx;
+}
+.checkbox.checked {
+  background: #3b82f6;
+  border-color: #3b82f6;
+}
+.task-body {
+  flex: 1;
+  min-width: 0;
+}
+.task-title {
+  font-size: 30rpx;
+  font-weight: 500;
+}
+.task-meta {
+  margin-top: 8rpx;
+}
+.tag-row {
+  margin-top: 12rpx;
+}
+
+.fab {
+  position: fixed;
+  right: 40rpx;
+  bottom: 60rpx;
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 50%;
+  background: #3b82f6;
+  color: #fff;
+  font-size: 56rpx;
+  line-height: 96rpx;
+  text-align: center;
+  box-shadow: 0 8rpx 20rpx rgba(59, 130, 246, 0.4);
+}

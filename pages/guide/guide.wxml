@@ -1,0 +1,22 @@
+<!-- pages/guide/guide.wxml -->
+<view class="container">
+  <view class="card">
+    <view class="step-title">方式一：添加到“我的小程序”（推荐）</view>
+    <view class="step">1. 在微信中打开本小程序；</view>
+    <view class="step">2. 点击右上角「···」菜单；</view>
+    <view class="step">3. 选择「添加到我的小程序」；</view>
+    <view class="step">4. 下拉微信聊天列表顶部即可快速进入。</view>
+  </view>
+
+  <view class="card">
+    <view class="step-title">方式二：添加到手机桌面（安卓）</view>
+    <view class="step">1. 在小程序内点击右上角「···」；</view>
+    <view class="step">2. 选择「添加到桌面」；</view>
+    <view class="step">3. 按系统提示完成添加。</view>
+    <view class="step muted">注：iOS 微信不支持直接添加到桌面，可用方式一。</view>
+  </view>
+
+  <view class="card tip-card">
+    <text class="muted">小程序受平台限制，无法像原生 App 那样在系统桌面显示实时待办 Widget；以上两种方式可让你最快进入清单。</text>
+  </view>
+</view>

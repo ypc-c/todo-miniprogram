@@ -1,0 +1,62 @@
+/* app.wxss 全局样式 */
+page {
+  background: #f5f5f5;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: #1f2937;
+  font-size: 28rpx;
+}
+
+.container {
+  padding: 24rpx;
+}
+
+/* 通用卡片 */
+.card {
+  background: #ffffff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.04);
+}
+
+/* 优先级色条 */
+.pri-high { border-left: 8rpx solid #ef4444; }
+.pri-medium { border-left: 8rpx solid #f59e0b; }
+.pri-low { border-left: 8rpx solid #10b981; }
+.pri-none { border-left: 8rpx solid #d1d5db; }
+
+/* 标签 */
+.tag {
+  display: inline-block;
+  font-size: 22rpx;
+  padding: 4rpx 14rpx;
+  border-radius: 999rpx;
+  margin-right: 10rpx;
+  color: #ffffff;
+}
+
+/* 主按钮 */
+.btn-primary {
+  background: #3b82f6;
+  color: #fff;
+  border-radius: 12rpx;
+  font-size: 30rpx;
+}
+
+.btn-ghost {
+  background: #eef2ff;
+  color: #3b82f6;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+}
+
+/* 文本省略 */
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.muted { color: #9ca3af; font-size: 24rpx; }
+.overdue { color: #ef4444; }
+.done-title { text-decoration: line-through; color: #9ca3af; }

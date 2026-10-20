@@ -1,0 +1,172 @@
+/* pages/task/task.wxss */
+.form .field {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+}
+.field.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.label {
+  display: block;
+  font-size: 26rpx;
+  color: #6b7280;
+  margin-bottom: 16rpx;
+  font-weight: 600;
+}
+.field.row .label {
+  margin-bottom: 0;
+}
+.title-input {
+  font-size: 34rpx;
+  font-weight: 600;
+}
+.note-input {
+  width: 100%;
+  height: 140rpx;
+  font-size: 28rpx;
+}
+.picker-value {
+  font-size: 28rpx;
+  color: #1f2937;
+}
+.picker-value.placeholder {
+  color: #9ca3af;
+}
+.clear {
+  font-size: 24rpx;
+  color: #ef4444;
+  margin-left: 20rpx;
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+.chip {
+  padding: 10rpx 28rpx;
+  border: 1rpx solid #e5e7eb;
+  border-radius: 999rpx;
+  font-size: 26rpx;
+  color: #6b7280;
+  background: #fff;
+}
+.chip.active {
+  background: #3b82f6;
+  color: #fff;
+  border-color: #3b82f6;
+}
+.chip.sm {
+  padding: 6rpx 20rpx;
+  font-size: 24rpx;
+}
+.chip.pri-high.active { background: #ef4444; border-color: #ef4444; }
+.chip.pri-medium.active { background: #f59e0b; border-color: #f59e0b; }
+.chip.pri-low.active { background: #10b981; border-color: #10b981; }
+
+.sub-row {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  margin-top: 16rpx;
+  font-size: 26rpx;
+  color: #6b7280;
+}
+.num-input {
+  width: 80rpx;
+  border: 1rpx solid #e5e7eb;
+  border-radius: 8rpx;
+  text-align: center;
+  padding: 4rpx 0;
+}
+
+.sub-item {
+  display: flex;
+  align-items: center;
+  padding: 12rpx 0;
+  border-bottom: 1rpx solid #f1f5f9;
+}
+.sub-title {
+  flex: 1;
+  font-size: 28rpx;
+  margin-left: 16rpx;
+}
+.sub-add {
+  display: flex;
+  align-items: center;
+  margin-top: 12rpx;
+}
+.sub-input {
+  flex: 1;
+  border: 1rpx solid #e5e7eb;
+  border-radius: 8rpx;
+  padding: 12rpx 16rpx;
+  font-size: 26rpx;
+}
+.add-btn {
+  color: #3b82f6;
+  font-size: 26rpx;
+  padding: 0 20rpx;
+}
+
+.checkbox.sm {
+  width: 32rpx;
+  height: 32rpx;
+  font-size: 20rpx;
+}
+
+.att-row {
+  display: flex;
+  gap: 16rpx;
+}
+.att-btn {
+  padding: 14rpx 28rpx;
+  background: #eff6ff;
+  color: #3b82f6;
+  border-radius: 10rpx;
+  font-size: 26rpx;
+}
+.att-btn.recording {
+  background: #fee2e2;
+  color: #ef4444;
+}
+.att-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12rpx 0;
+  border-bottom: 1rpx solid #f1f5f9;
+}
+.att-name {
+  font-size: 26rpx;
+  color: #475569;
+}
+
+.loc-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.loc-name {
+  font-size: 28rpx;
+  color: #1f2937;
+}
+.del {
+  color: #ef4444;
+  font-size: 26rpx;
+  padding: 0 10rpx;
+}
+
+.save-btn {
+  margin-top: 12rpx;
+}
+.del-btn {
+  margin-top: 16rpx;
+  background: #fff;
+  color: #ef4444;
+  border: 1rpx solid #fecaca;
+}

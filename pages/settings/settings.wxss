@@ -1,0 +1,44 @@
+/* pages/settings/settings.wxss */
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40rpx;
+}
+.stat-num {
+  font-size: 64rpx;
+  font-weight: 700;
+  color: #3b82f6;
+}
+.stat-label {
+  font-size: 26rpx;
+  color: #9ca3af;
+  margin-top: 8rpx;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28rpx 8rpx;
+  border-bottom: 1rpx solid #f1f5f9;
+  font-size: 30rpx;
+}
+.menu-item:last-child {
+  border-bottom: none;
+}
+.arrow {
+  color: #cbd5e1;
+  font-size: 36rpx;
+}
+
+.about-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  margin-bottom: 12rpx;
+}
+.about-text {
+  font-size: 24rpx;
+  color: #9ca3af;
+  line-height: 1.7;
+}

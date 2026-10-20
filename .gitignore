@@ -1,0 +1,17 @@
+# 微信开发者工具私有配置（含本地个人信息）
+project.private.config.json
+
+# 内部工作日志 / 代理记忆
+.workbuddy/
+
+# 依赖与构建产物
+node_modules/
+dist/
+miniprogram_npm/
+
+# 系统与编辑器
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log
